@@ -1,0 +1,47 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: db
+    component: mongodb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: roboshop
+      tier: db
+      component: mongodb
+  template:
+    metadata:
+    labels: 
+      project: roboshop
+      tier: db
+      component: mongodb
+spec:
+  containers:
+    - name: mongodb
+      image: joindevops/mongodb:1.0.0
+--- # Service we can access our application by using cluser ip for internal use only 
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: db
+    component: mongodb
+spec:
+  selector:
+    matchLabels:
+      project: roboshop
+      tier: db
+      component: mongodb
+  ports:
+    - protocal: TCP
+      port: 27017 # Service port
+      targetport: 27017 # container port
+

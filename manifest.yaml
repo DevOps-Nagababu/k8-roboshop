@@ -36,11 +36,11 @@ metadata:
     component: mongodb
 spec:
   selector:
-      project: roboshop
-      tier: db
-      component: mongodb
+    project: roboshop
+    tier: db
+    component: mongodb
   ports:
-    - protocal: TCP
-      port: 27017 # Service port
-      targetport: 27017 # container port
+  - protocal: TCP
+    port: 27017 # Service port
+    targetport: 27017 # container port
 

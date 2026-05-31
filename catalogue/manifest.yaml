@@ -6,7 +6,7 @@ metadata:
   namespace: roboshop
   labels:
     project: roboshop
-    tier: db
+    tier: backend
     component: catalogue
 
 spec:
@@ -15,20 +15,20 @@ spec:
   selector:
     matchLabels:
       project: roboshop
-      tier: db
+      tier: backend
       component: catalogue
 
   template:
     metadata:
       labels:
         project: roboshop
-        tier: db
+        tier: backend
         component: catalogue
 
     spec:
       containers:
       - name: catalogue
-        image: joindevops/mongodb:1.0.0
+        image: joindevops/catalogue:1.0.0
 
 ---
 
@@ -40,13 +40,13 @@ metadata:
   namespace: roboshop
   labels:
     project: roboshop
-    tier: db
+    tier: backend
     component: catalogue
 
 spec:
   selector:
     project: roboshop
-    tier: db
+    tier: backend
     component: catalogue
 
   ports:

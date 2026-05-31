@@ -6,10 +6,12 @@ metadata:
     project: roboshop
     tier: backend
     component: catalogue
+
 data:
   MONGO: "true"
   MONGO_URL: "mongodb://mongodb:27017/catalogue"
   trainer: "Naga"
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -42,12 +44,12 @@ spec:
       containers:
       - name: catalogue
         image: joindevops/catalogue:1.0.0
-    envFrom:
-    - configMapRef:
-        name: catalogue
+
+        envFrom:
+        - configMapRef:
+            name: catalogue
 
 ---
-
 apiVersion: v1
 kind: Service
 

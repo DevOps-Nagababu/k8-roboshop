@@ -42,7 +42,7 @@ spec:
           tcpSocket:
             port: 8080
           failureThreshold: 2
-          initialDelaySeconds: 5
+          initialDelaySeconds: 15
           periodSeconds: 10
 
         livenessProbe:
